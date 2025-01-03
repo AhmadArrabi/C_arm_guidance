@@ -46,7 +46,6 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *.cover
-*.py,cover
 .hypothesis/
 .pytest_cache/
 cover/
@@ -169,3 +168,5 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+.gitignore

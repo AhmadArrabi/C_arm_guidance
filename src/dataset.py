@@ -41,8 +41,8 @@ class Landmark_dataset(torch.utils.data.Dataset):
     -----------------------------------------------------------------------------------
 
     """
+    
     def __init__(self,
-                 root_data, # Xray images path
                  root_annotations, # csv annotations path
                  augmentation=True,
                  mode='train',
@@ -50,7 +50,6 @@ class Landmark_dataset(torch.utils.data.Dataset):
         
         super(Landmark_dataset, self).__init__()
         
-        self.root_data = root_data
         self.root_annotations = root_annotations
         self.augmentation = augmentation
         self.mode = mode
@@ -130,7 +129,6 @@ class Positional_dataset(torch.utils.data.Dataset):
     
     """
     def __init__(self,
-                 root_data, # Xray data root
                  root_annotations, # annotations root
                  augmentation=True,
                  mode='train',
@@ -138,7 +136,6 @@ class Positional_dataset(torch.utils.data.Dataset):
         
         super(Positional_dataset, self).__init__()
         
-        self.root_data = root_data
         self.root_annotations = root_annotations
         self.augmentation = augmentation
         self.mode = mode

@@ -20,13 +20,6 @@ def parse_args(input_args=None):
         help=("the name of the backbone used in training")
     )
     parser.add_argument(
-        "--data_dir",
-        type=str,
-        default=None,
-        required=True,
-        help=("Xray data folder")
-    )
-    parser.add_argument(
         "--annotations_dir",
         type=str,
         default=None,
@@ -51,7 +44,7 @@ def main(args):
     DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     img_size = [256,256]
 
-    dataset_val = Positional_dataset(augmentation=False, mode='test', size=img_size, root_data=args.data_dir, root_annotations=args.annotations_dir)
+    dataset_val = Positional_dataset(augmentation=False, mode='test', size=img_size, root_annotations=args.annotations_dir)
     loader_val = torch.utils.data.DataLoader(dataset_val, batch_size=args.batch_size, shuffle=True)
     
     model = nn.DataParallel(positional_understanding_model(backbone=args.model_name, remove_patient_stats=args.remove_patient_stats))

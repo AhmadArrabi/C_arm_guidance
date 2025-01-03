@@ -1,13 +1,11 @@
 export LOG_DIR="root/logs/classifier" 
 export CHECKPOINT_SELF_SUPERVISED="root/logs/self_supervised/experiment_1/checkpoints/chkpt_e100.pt"
-export DATA_DIR="root/data"
 export ANNOTATIONS_DIR="root/annotations"
 
 python ./src/train_classifier.py \
    --batch_size 64 \
    --epochs 20 \
    --log_dir=$LOG_DIR \
-   --data_dir=$DATA_DIR \
    --annotations_dir=$ANNOTATIONS_DIR \
    --exp_name experiment_1 \
    --model_name resnet34 \

@@ -15,13 +15,6 @@ def parse_args(input_args=None):
         default=32,
     )
     parser.add_argument(
-        "--data_dir",
-        type=str,
-        default=None,
-        required=True,
-        help=("Xray data folder")
-    )
-    parser.add_argument(
         "--annotations_dir",
         type=str,
         default=None,
@@ -61,7 +54,7 @@ def parse_args(input_args=None):
 
 def main(args):
     
-    dataset_val = Landmark_dataset(augmentation=False, mode='test', size=[256,256], root_data=args.data_dir, root_annotations=args.annotations_dir)
+    dataset_val = Landmark_dataset(augmentation=False, mode='test', size=[256,256], root_annotations=args.annotations_dir)
     loader_val = torch.utils.data.DataLoader(dataset_val, batch_size=args.batch_size, shuffle=True)
     
     DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')

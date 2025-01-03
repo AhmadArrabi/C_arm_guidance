@@ -26,13 +26,6 @@ def parse_args(input_args=None):
         help=("make sure you're logging in the right dir")
     )
     parser.add_argument(
-        "--data_dir",
-        type=str,
-        default=None,
-        required=True,
-        help=("Xray data folder")
-    )
-    parser.add_argument(
         "--annotations_dir",
         type=str,
         default=None,
@@ -98,8 +91,8 @@ def main(args):
     
     img_size = [256,256]
 
-    dataset = Landmark_dataset(augmentation=True, mode='train', size=img_size, root_data=args.data_dir, root_annotations=args.annotations_dir)
-    dataset_val = Landmark_dataset(augmentation=False, mode='test', size=img_size, root_data=args.data_dir, root_annotations=args.annotations_dir)
+    dataset = Landmark_dataset(augmentation=True, mode='train', size=img_size, root_annotations=args.annotations_dir)
+    dataset_val = Landmark_dataset(augmentation=False, mode='test', size=img_size, root_annotations=args.annotations_dir)
     loader = torch.utils.data.DataLoader(dataset, batch_size=args.batch_size, shuffle=True)
     loader_val = torch.utils.data.DataLoader(dataset_val, batch_size=args.batch_size, shuffle=False)
     

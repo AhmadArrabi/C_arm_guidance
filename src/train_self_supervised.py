@@ -26,13 +26,6 @@ def parse_args(input_args=None):
         help=("Be careful when using deep green or black diamond")
     )
     parser.add_argument(
-        "--data_dir",
-        type=str,
-        default=None,
-        required=True,
-        help=("Xray data folder")
-    )
-    parser.add_argument(
         "--annotations_dir",
         type=str,
         default=None,
@@ -72,9 +65,9 @@ def main(args):
     
     img_size = [256,256]
 
-    dataset = Positional_dataset(augmentation=True, mode='train', size=img_size, root_data=args.data_dir, root_annotations=args.annotations_dir)
+    dataset = Positional_dataset(augmentation=True, mode='train', size=img_size, root_annotations=args.annotations_dir)
     loader = torch.utils.data.DataLoader(dataset, batch_size=args.batch_size, shuffle=True)
-    dataset_val = Positional_dataset(augmentation=False, mode='test', size=img_size, root_data=args.data_dir, root_annotations=args.annotations_dir)
+    dataset_val = Positional_dataset(augmentation=False, mode='test', size=img_size, root_annotations=args.annotations_dir)
     loader_val = torch.utils.data.DataLoader(dataset_val, batch_size=args.batch_size, shuffle=True)
     
     model = nn.DataParallel(positional_understanding_model(backbone=args.model_name))

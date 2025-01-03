@@ -1,5 +1,4 @@
 from torchvision import transforms
-import pandas as pd
 
 def transform(size, augmentation=True):
     if augmentation:
