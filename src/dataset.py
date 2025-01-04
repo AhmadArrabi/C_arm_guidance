@@ -68,9 +68,9 @@ class Landmark_dataset(torch.utils.data.Dataset):
         self.annotations['age_years'] = (self.annotations['age_years']-train_set['age_years'].mean())/train_set['age_years'].std()
         self.annotations['cadaver_weight'] = (self.annotations['cadaver_weight']-train_set['cadaver_weight'].mean())/train_set['cadaver_weight'].std()
         self.annotations['cadaver_length'] = (self.annotations['cadaver_length']-train_set['cadaver_length'].mean())/train_set['cadaver_length'].std()
-        self.annotations['x_modified'] = self.annotations['x_modified']/train_set['x_modified'].max()
-        self.annotations['y_modified'] = self.annotations['y_modified']/train_set['y_modified'].max()
-        self.annotations['z_modified'] = self.annotations['z_modified']/train_set['z_modified'].max()
+        self.annotations['x'] = self.annotations['x']/train_set['x'].max()
+        self.annotations['y'] = self.annotations['y']/train_set['y'].max()
+        self.annotations['z'] = self.annotations['z']/train_set['z'].max()
 
     def __getitem__(self, index):
         sample = self.annotations.iloc[index]
@@ -154,9 +154,9 @@ class Positional_dataset(torch.utils.data.Dataset):
         self.annotations['age_years'] = (self.annotations['age_years']-train_set['age_years'].mean())/train_set['age_years'].std()
         self.annotations['cadaver_weight'] = (self.annotations['cadaver_weight']-train_set['cadaver_weight'].mean())/train_set['cadaver_weight'].std()
         self.annotations['cadaver_length'] = (self.annotations['cadaver_length']-train_set['cadaver_length'].mean())/train_set['cadaver_length'].std()
-        self.annotations['x_modified'] = self.annotations['x_modified']/train_set['x_modified'].max()
-        self.annotations['y_modified'] = self.annotations['y_modified']/train_set['y_modified'].max()
-        self.annotations['z_modified'] = self.annotations['z_modified']/train_set['z_modified'].max()
+        self.annotations['x'] = self.annotations['x']/train_set['x'].max()
+        self.annotations['y'] = self.annotations['y']/train_set['y'].max()
+        self.annotations['z'] = self.annotations['z']/train_set['z'].max()
         
     def __getitem__(self, index):
         sample = self.annotations.iloc[index]
@@ -168,9 +168,9 @@ class Positional_dataset(torch.utils.data.Dataset):
         weight = torch.tensor([sample['cadaver_weight']])
         height = torch.tensor([sample['cadaver_length']])
         sex = torch.nn.functional.one_hot(torch.tensor([sample['sex_code']]), 2).view(-1)
-        x = torch.tensor([sample['x_modified']])
-        y = torch.tensor([sample['y_modified']])
-        z = torch.tensor([sample['z_modified']])
+        x = torch.tensor([sample['x']])
+        y = torch.tensor([sample['y']])
+        z = torch.tensor([sample['z']])
 
         return (X_ray, torch.cat([age,weight,height,sex]), torch.cat([x, y, z]))
 
