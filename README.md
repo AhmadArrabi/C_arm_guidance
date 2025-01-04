@@ -1,5 +1,5 @@
 # C-Arm Guidance
-Official implementation of the paper "C-Arm Guidance: a Self-Supervised Approach to Automated Positioning During Stroke Thrombectomy" (ISBI 2025)
+Official implementation of the paper "*C-Arm Guidance: a Self-Supervised Approach to Automated Positioning During Stroke Thrombectomy*" (ISBI 2025)
 
 ![model](assets/carm_arch.svg)
 
