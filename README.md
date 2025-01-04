@@ -11,6 +11,7 @@ Official implementation of the paper "C-Arm Guidance: a Self-Supervised Approach
 - tqdm
   
 ### GUI
+in progress 
 
 ## Training
 For training you'll need to provide a dataset composed of X-ray images. Feel free to either use our provided GUI or your own data (make sure to adapt the code)
@@ -38,7 +39,8 @@ Landmarks
    └── *.png 
 ```
 Also, the dataset class assumes to have an annotation .csv files with the following columns:
-regression/annotations.csv
+#### regression
+annotations.csv
 |   column      |      example          | Description                                |
 |---------------|------------------------|------------------------------------------|
 |  case_number  |     case-10065        | uniques case ID                            |
@@ -53,7 +55,8 @@ regression/annotations.csv
 |cadaver_length |      174.0            | cadaver legnth (m)                         |
 |     mode      |      train            | 'train' or 'test'                          |
     
-classifier/annotations.csv
+#### classifier
+annotations.csv
 |   column      |      example      | Description                                |
 |---------------|-------------------|-----------------------------------------------|
 |  case_number  |     case-10065    | uniques case ID                            |
