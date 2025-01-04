@@ -19,55 +19,55 @@ For the best experience, make sure your data repository tree is as follows:
 ```bash
 regression
 ├── case_00000/
-│   └── *.png
+   └── *.png
 ├── case_00001/
-│   └── *.png
+   └── *.png
 ├── .
 ├── .
 ├── case_N/
-|   └── *.png
+   └── *.png
 
 Landmarks
 ├── 20/
-│   └── *.png
+   └── *.png
 ├── 19/
-│   └── *.png
+   └── *.png
 ├── .
 ├── .
 ├── 1/
-|   └── *.png 
+   └── *.png 
 ```
 Also, the dataset class assumes to have an annotation .csv files with the following columns:
 regression/annotations.csv
-    |   column      |      example          | Description                                |
-    |---------------|------------------------|------------------------------------------|
-    |  case_number  |     case-10065        | uniques case ID                            |
-    |   filename    | root/case_10065/5.png | file path for the Xray .png image          |
-    |      x        |      -232.5           | x-position of the image in the CT          |
-    |      y        |       -34.5           | y-position of the image in the CT          |
-    |      z        |       208.2           | z-position of the image in the CT          |
-    |     part      |       upper           | Xray belongs to the 'upper' or 'lower' CT  |
-    |   age_years   |        66             | patient age                                |
-    |   sex_code    |       Male            | patient sex                                |
-    |cadaver_weight |       73.0            | cadaver weight (kg)                        |
-    |cadaver_length |      174.0            | cadaver legnth (m)                         |
-    |     mode      |      train            | 'train' or 'test'                          |
+|   column      |      example          | Description                                |
+|---------------|------------------------|------------------------------------------|
+|  case_number  |     case-10065        | uniques case ID                            |
+|   filename    | root/case_10065/5.png | file path for the Xray .png image          |
+|      x        |      -232.5           | x-position of the image in the CT          |
+|      y        |       -34.5           | y-position of the image in the CT          |
+|      z        |       208.2           | z-position of the image in the CT          |
+|     part      |       upper           | Xray belongs to the 'upper' or 'lower' CT  |
+|   age_years   |        66             | patient age                                |
+|   sex_code    |       Male            | patient sex                                |
+|cadaver_weight |       73.0            | cadaver weight (kg)                        |
+|cadaver_length |      174.0            | cadaver legnth (m)                         |
+|     mode      |      train            | 'train' or 'test'                          |
     
 classifier/annotations.csv
-    |   column      |      example      | Description                                |
-    |---------------|-------------------|-----------------------------------------------|
-    |  case_number  |     case-10065    | uniques case ID                            |
-    |   filename    | root/20/10065.png | file path for the Xray .png image          |
-    |      x        |      -232.5       | x-position of the image in the CT          |
-    |      y        |       -34.5       | y-position of the image in the CT          |
-    |      z        |       208.2       | z-position of the image in the CT          |
-    |     part      |       upper       | Xray belongs to the 'upper' or 'lower' CT  |
-    |   age_years   |        66         | patient age                                |
-    |   sex_code    |       Male        | patient sex                                |
-    |cadaver_weight |       73.0        | cadaver weight (kg)                        |
-    |cadaver_length |      174.0        | cadaver legnth (m)                         |
-    |     mode      |      train        | 'train' or 'test'                          |
-    |   landmark    |       20          | landmark label [1-20]                      |
+|   column      |      example      | Description                                |
+|---------------|-------------------|-----------------------------------------------|
+|  case_number  |     case-10065    | uniques case ID                            |
+|   filename    | root/20/10065.png | file path for the Xray .png image          |
+|      x        |      -232.5       | x-position of the image in the CT          |
+|      y        |       -34.5       | y-position of the image in the CT          |
+|      z        |       208.2       | z-position of the image in the CT          |
+|     part      |       upper       | Xray belongs to the 'upper' or 'lower' CT  |
+|   age_years   |        66         | patient age                                |
+|   sex_code    |       Male        | patient sex                                |
+|cadaver_weight |       73.0        | cadaver weight (kg)                        |
+|cadaver_length |      174.0        | cadaver legnth (m)                         |
+|     mode      |      train        | 'train' or 'test'                          |
+|   landmark    |       20          | landmark label [1-20]                      |
 
 ### Pretext Task (Regression)
 To train the first task (regression) navigate to the root directory and run the following script
