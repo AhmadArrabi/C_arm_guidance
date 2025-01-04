@@ -27,7 +27,8 @@ regression
 ├── .
 ├── case_N/
    └── *.png
-
+```
+```bash
 Landmarks
 ├── 20/
    └── *.png
