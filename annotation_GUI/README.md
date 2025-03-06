@@ -44,9 +44,8 @@ python3 select_image_gui.py ./
 
 ![Screenshot](img/guide1.png)
 
-1. Click on `Submit` to check for compatible files in the directory.
-2. Choose the NIfTI file you want to simulate.
-3. Press the `Execute Command` button.
+1. Enter User ID; different operators will have different user ID for the annotation.
+2. Press Start Processing, to start annotations.
 
 ![Screenshot](img/guide2.png)
 
