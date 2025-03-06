@@ -1,4 +1,4 @@
-# UVMMC C-ARM Automation GUI
+# C-ARM Automation GUI
 
 This GUI facilitates the acquisition of CT coordinates for the target areas (arch, head, neck) to train the Deep Learning Model.
 
