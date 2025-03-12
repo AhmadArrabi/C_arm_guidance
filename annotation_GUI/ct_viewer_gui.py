@@ -2,10 +2,10 @@ from vedo import *
 import math
 
 import datetime
-import rest_api_write
-import threading
 from vedo.applications import IsosurfaceBrowser
 from generate_deepdrr import Generate 
+
+import pandas as pd
 import sys
 
 
@@ -143,14 +143,17 @@ def buttonfunc_finish():
     """       
     global order 
     global coordinate_to_send
-    print(order)
+  
     if order == 21:
-        for coordinate_order in coordinate_to_send:
-            if coordinate_order is not None:
-                rest_api_write.send_post(*coordinate_order)
+
+        df = pd.DataFrame(coordinate_to_send, columns=['x', 'y', 'z', 'a', 'b', 'landmark', 'file_name', 'operator', 'case_name'])
+        output_file = "annotations.csv"
+
+        if not os.path.exists(output_file):
+            df.to_csv(output_file, index=False)
+        else:
+            df.to_csv(output_file, mode='a', header=False, index=False)
         exit()
-
-
 
 def func(evt):
     msh = evt.actor
