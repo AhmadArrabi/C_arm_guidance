@@ -144,12 +144,12 @@ To run the GUI, use the following command:
 python3 select_image_gui.py ./
 ```
 
-![Screenshot](img/guide1.png)
+![Screenshot](annotation_GUI/img/guide1.png)
 
 1. Enter User ID; different operators will have different user ID for the annotation.
 2. Press Start Processing, to start annotations.
 
-![Screenshot](img/guide2.png)
+![Screenshot](annotation_GUI/img/guide2.png)
 
 Tasks are defined in the `ct_viewer_gui.py` file. There are 20 landmarks to annotate.
 
